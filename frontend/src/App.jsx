@@ -1,4 +1,7 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastProvider } from "./context/ToastContext";
+import { getProfile } from "./api/profile";
 
 import Dashboard from "./pages/Dashboard";
 import Tasks from "./pages/Tasks";
@@ -11,7 +14,14 @@ import Journal from "./pages/Journal";
 import Settings from "./pages/Settings";
 
 function App() {
+  useEffect(() => {
+    getProfile()
+      .then((data) => document.documentElement.setAttribute("data-theme", data.theme))
+      .catch(() => {});
+  }, []);
+
   return (
+    <ToastProvider>
     <BrowserRouter>
 
       <Routes>
@@ -73,6 +83,7 @@ function App() {
       </Routes>
 
     </BrowserRouter>
+    </ToastProvider>
   );
 }
 

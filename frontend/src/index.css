@@ -1,2 +1,88 @@
 @import "tailwindcss";
 
+:root {
+  --accent-50: #fdf2f8;
+  --accent-100: #fce7f3;
+  --accent-200: #fbcfe8;
+  --accent-300: #f9a8d4;
+  --accent-400: #f472b6;
+  --accent-500: #ec4899;
+  --accent-600: #db2777;
+  --accent-name: "Blossom Pink";
+}
+
+:root[data-theme="lavender"] {
+  --accent-50: #f5f3ff;
+  --accent-100: #ede9fe;
+  --accent-200: #ddd6fe;
+  --accent-300: #c4b5fd;
+  --accent-400: #a78bfa;
+  --accent-500: #8b5cf6;
+  --accent-600: #7c3aed;
+  --accent-name: "Lavender Dream";
+}
+
+:root[data-theme="peach"] {
+  --accent-50: #fff7ed;
+  --accent-100: #ffedd5;
+  --accent-200: #fed7aa;
+  --accent-300: #fdba74;
+  --accent-400: #fb923c;
+  --accent-500: #f97316;
+  --accent-600: #ea580c;
+  --accent-name: "Peach Sorbet";
+}
+
+:root[data-theme="mint"] {
+  --accent-50: #ecfdf5;
+  --accent-100: #d1fae5;
+  --accent-200: #a7f3d0;
+  --accent-300: #6ee7b7;
+  --accent-400: #34d399;
+  --accent-500: #10b981;
+  --accent-600: #059669;
+  --accent-name: "Mint Bloom";
+}
+
+body {
+  font-family: "Quicksand", "Poppins", sans-serif;
+}
+
+.text-accent { color: var(--accent-500); }
+.text-accent-600 { color: var(--accent-600); }
+.bg-accent { background-color: var(--accent-500); }
+.bg-accent-hover:hover { background-color: var(--accent-600); }
+.bg-accent-50 { background-color: var(--accent-50); }
+.bg-accent-100 { background-color: var(--accent-100); }
+.border-accent { border-color: var(--accent-300); }
+.ring-accent { --tw-ring-color: var(--accent-300); }
+.accent-fill { accent-color: var(--accent-500); }
+
+.bg-accent-gradient {
+  background: linear-gradient(135deg, var(--accent-100), var(--accent-300));
+}
+.bg-accent-gradient-strong {
+  background: linear-gradient(135deg, var(--accent-400), var(--accent-600));
+}
+.shadow-soft {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-toast-in {
+  animation: toast-in 0.2s ease-out;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.animate-pop {
+  animation: pop 0.3s ease-out;
+}
+
+
