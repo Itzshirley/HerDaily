@@ -159,7 +159,7 @@ function Tasks() {
     try {
       const data = await getTasks();
       setTasks(data);
-    } catch (err) {
+    } catch {
       setError("Couldn't reach the server. Is the Django backend running?");
     } finally {
       setLoading(false);
